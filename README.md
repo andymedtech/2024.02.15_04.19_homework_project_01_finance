@@ -1,5 +1,14 @@
 # init project
 
+# React + TypeScript + Vite
+
+npm create vite@latest
+npm install
+
+# React Router Dom
+
+npm i react-router-dom
+
 # -----
 
 # React + TypeScript + Vite
