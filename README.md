@@ -9,6 +9,14 @@ npm install
 
 npm i react-router-dom
 
+# https://console.firebase.google.com
+
+project-01-finance
+
+https://console.firebase.google.com/project/project-01-finance/database/project-01-finance-default-rtdb/data/~2F
+
+https://project-01-finance-default-rtdb.europe-west1.firebasedatabase.app/
+
 # -----
 
 # React + TypeScript + Vite

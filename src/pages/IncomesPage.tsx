@@ -1,7 +1,9 @@
+import Incomes from "../component/Incomes/Incomes";
+
 const IncomesPage = () => {
   return (
     <>
-      <h1>Incomes</h1>
+      <Incomes />
     </>
   );
 };
