@@ -52,22 +52,22 @@ const Total = () => {
 
   useEffect(() => {
     getIncomes();
-    // });
-  }, []);
+  });
+  // }, []);
 
   useEffect(() => {
     getExpenses();
-    // });
-  }, []);
+  });
+  // }, []);
 
   const sumIncomes = incomesList.reduce(
     (acc, val) => +acc + Number(val.sum),
-    []
+    0
   );
 
   const sumExpenses = expensesList.reduce(
     (acc, val) => +acc + Number(val.sum),
-    []
+    0
   );
   return <span className="headtotal">{sumIncomes - sumExpenses}</span>;
 };

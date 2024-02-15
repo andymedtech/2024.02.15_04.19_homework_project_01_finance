@@ -17,6 +17,7 @@ function App() {
         <NavLink className={""} to="/expenses">
           Расходы
         </NavLink>
+        {/* Добавить переход на страницу 404 */}
       </header>
       <Routes>
         <Route path="/*" element={<BalancePage />} />

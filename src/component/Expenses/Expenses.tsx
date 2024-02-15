@@ -47,7 +47,8 @@ const Expenses = () => {
           "Content-Type": "application/json",
         },
       }
-    ).then((res) => {
+      // ).then((res) => {
+    ).then(() => {
       // console.log(res);
       setExpensesExpense("");
       setExpensesSum("");

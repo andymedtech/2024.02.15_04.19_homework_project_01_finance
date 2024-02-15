@@ -47,7 +47,8 @@ const Incomes = () => {
           "Content-Type": "application/json",
         },
       }
-    ).then((res) => {
+      // ).then((res) => {
+    ).then(() => {
       // console.log(res);
       setIncomesSource("");
       setIncomesSum("");
