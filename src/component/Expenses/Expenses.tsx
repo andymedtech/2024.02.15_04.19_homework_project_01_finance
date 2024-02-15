@@ -48,7 +48,7 @@ const Expenses = () => {
         },
       }
     ).then((res) => {
-      console.log(res);
+      // console.log(res);
       setExpensesExpense("");
       setExpensesSum("");
       getExpenses();
@@ -61,7 +61,7 @@ const Expenses = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const result = [];
         for (const key in data) {
           result.push({
@@ -80,33 +80,38 @@ const Expenses = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        value={expensesExpense}
-        onChange={(e) => setExpensesExpense(e.target.value)}
-        placeholder="Цель расхода"
-      />
-      <input
-        type="number"
-        value={expensesSum}
-        onChange={(e) => setExpensesSum(e.target.value)}
-        placeholder="Сумма"
-      />
-      <button
-        onClick={postExpenses}
-        disabled={!expensesExpense || !expensesSum}
-      >
-        СОЗДАТЬ
-      </button>
-      <ul>Дата Сумма Цель расхода</ul>
+      <div className="headlist">
+        <input
+          type="text"
+          value={expensesExpense}
+          onChange={(e) => setExpensesExpense(e.target.value)}
+          placeholder="Цель расхода"
+        />
+        <input
+          type="number"
+          value={expensesSum}
+          onChange={(e) => setExpensesSum(e.target.value)}
+          placeholder="Сумма"
+        />
+        <button
+          className="btnred"
+          onClick={postExpenses}
+          disabled={!expensesExpense || !expensesSum}
+        >
+          СОЗДАТЬ
+        </button>
+      </div>
+      <ul className="tablehead">
+        <span>Дата </span> <span>Сумма </span> <span>Цель расхода</span>
+      </ul>
       <ul>
         {expensesList
           .map((item) => (
-            <li key={item.id}>
-              {item.ddmmyyyy}
-              {item.sum}
-              {item.expense}
-            </li>
+            <div className="tablein" key={item.id}>
+              <span>{item.ddmmyyyy}</span>
+              <span>{item.sum}</span>
+              <span>{item.expense}</span>
+            </div>
           ))
           .reverse()}
       </ul>

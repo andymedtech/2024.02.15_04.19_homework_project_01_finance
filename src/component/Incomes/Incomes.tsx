@@ -48,7 +48,7 @@ const Incomes = () => {
         },
       }
     ).then((res) => {
-      console.log(res);
+      // console.log(res);
       setIncomesSource("");
       setIncomesSum("");
       getIncomes();
@@ -61,7 +61,7 @@ const Incomes = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const result = [];
         for (const key in data) {
           result.push({
@@ -80,30 +80,38 @@ const Incomes = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        value={incomesSource}
-        onChange={(e) => setIncomesSource(e.target.value)}
-        placeholder="Источник"
-      />
-      <input
-        type="number"
-        value={incomesSum}
-        onChange={(e) => setIncomesSum(e.target.value)}
-        placeholder="Сумма"
-      />
-      <button onClick={postIncomes} disabled={!incomesSource || !incomesSum}>
-        СОЗДАТЬ
-      </button>
-      <ul>Дата Сумма Источник</ul>
+      <div className="headlist">
+        <input
+          type="text"
+          value={incomesSource}
+          onChange={(e) => setIncomesSource(e.target.value)}
+          placeholder="Источник"
+        />
+        <input
+          type="number"
+          value={incomesSum}
+          onChange={(e) => setIncomesSum(e.target.value)}
+          placeholder="Сумма"
+        />
+        <button
+          className="btngreen"
+          onClick={postIncomes}
+          disabled={!incomesSource || !incomesSum}
+        >
+          СОЗДАТЬ
+        </button>
+      </div>
+      <ul className="tablehead">
+        <span>Дата</span> <span>Сумма</span> <span>Источник</span>
+      </ul>
       <ul>
         {incomesList
           .map((item) => (
-            <li key={item.id}>
-              {item.ddmmyyyy}
-              {item.sum}
-              {item.source}
-            </li>
+            <div className="tablein" key={item.id}>
+              <span>{item.ddmmyyyy}</span>
+              <span>{item.sum}</span>
+              <span>{item.source}</span>
+            </div>
           ))
           .reverse()}
       </ul>

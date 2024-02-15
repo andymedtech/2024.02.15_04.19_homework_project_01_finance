@@ -61,3 +61,120 @@ header a.active {
   color: gold;
   font-size: 150%;
 } */
+
+.headtotal {
+  color: green;
+  font-size: 75%;
+  border: 1px solid green;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.headlist {
+  width: 800 px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.headlist > input {
+  width: 250 px;
+  height: 50px;
+  font-size: 125%;
+}
+
+.headlist > button {
+  background: none;
+  width: 150 px;
+  height: 40px;
+  font-size: 100%;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+
+.btngreen {
+  color: green;
+  border: 1px solid green;
+}
+
+.btnred {
+  color: red;
+  border: 1px solid red;
+}
+
+.tablehead {
+  width: 100%;
+  min-width: 800px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid grey;
+}
+
+.tablehead > span {
+  width: 250px;
+  height: 40px;
+  font-size: 125%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.tablein {
+  width: 100%;
+  min-width: 800px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid grey;
+}
+
+.tablein > span {
+  width: 250px;
+  height: 40px;
+  font-size: 125%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.balance {
+  width: 100%;
+  height: 160px;
+  min-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 125%;
+}
+
+.balance > div {
+  width: 800px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.balancegreen {
+  color: green;
+  font-size: 75%;
+  border: 1px solid green;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.balancered {
+  color: red;
+  font-size: 75%;
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 50px;
+}

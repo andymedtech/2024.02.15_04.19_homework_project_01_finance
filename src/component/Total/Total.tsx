@@ -10,7 +10,7 @@ type ExpensesType = {
   sum: number;
 };
 
-const Balance = () => {
+const Total = () => {
   const [incomesList, setIncomesList] = useState<IncomesType[]>([]);
   const [expensesList, setExpensesList] = useState<ExpensesType[]>([]);
 
@@ -52,10 +52,12 @@ const Balance = () => {
 
   useEffect(() => {
     getIncomes();
+    // });
   }, []);
 
   useEffect(() => {
     getExpenses();
+    // });
   }, []);
 
   const sumIncomes = incomesList.reduce(
@@ -67,25 +69,7 @@ const Balance = () => {
     (acc, val) => +acc + Number(val.sum),
     []
   );
-
-  return (
-    <div className="balance">
-      <div>
-        <span>Доходы за всё время</span>
-        <span>Расходы за всё время</span>
-      </div>
-      <div>
-        <span className="balancegreen">{sumIncomes}</span>
-        <span className="balancered">{sumExpenses}</span>
-      </div>
-      <div>
-        <span>Итог</span>
-      </div>
-      <div>
-        <span className="balancegreen">{sumIncomes - sumExpenses}</span>
-      </div>
-    </div>
-  );
+  return <span className="headtotal">{sumIncomes - sumExpenses}</span>;
 };
 
-export default Balance;
+export default Total;

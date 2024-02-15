@@ -2,13 +2,14 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import BalancePage from "./pages/BalancePage";
 import IncomesPage from "./pages/IncomesPage";
 import ExpensesPage from "./pages/ExpensesPage";
+import Total from "./component/Total/Total";
 
 function App() {
   return (
     <>
       <header>
         <NavLink className={""} to="/balance">
-          Баланс
+          Баланс - <Total />
         </NavLink>
         <NavLink className={""} to="/incomes">
           Доходы
