@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 
-type IncomesType = {
+type ExpensesType = {
   id: string;
   ddmmyyyy: string;
   sum: number;
-  source: string;
+  expense: string;
 };
 
-const Incomes = () => {
-  const [incomesSource, setIncomesSource] = useState("");
-  const [incomesSum, setIncomesSum] = useState("");
-  const [incomesList, setIncomesList] = useState<IncomesType[]>([]);
+const Expenses = () => {
+  const [expensesExpense, setExpensesExpense] = useState("");
+  const [expensesSum, setExpensesSum] = useState("");
+  const [expensesList, setExpensesList] = useState<ExpensesType[]>([]);
 
-  const postIncomes = () => {
+  const postExpenses = () => {
     const now = new Date();
 
     const dd = () => {
@@ -35,13 +35,13 @@ const Incomes = () => {
       now.getFullYear();
 
     fetch(
-      "https://project-01-finance-default-rtdb.europe-west1.firebasedatabase.app/incomes.json",
+      "https://project-01-finance-default-rtdb.europe-west1.firebasedatabase.app/expenses.json",
       {
         method: "POST",
         body: JSON.stringify({
           ddmmyyyy: ddmmyyyy,
-          sum: incomesSum,
-          source: incomesSource,
+          sum: expensesSum,
+          expense: expensesExpense,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -49,15 +49,15 @@ const Incomes = () => {
       }
     ).then((res) => {
       console.log(res);
-      setIncomesSource("");
-      setIncomesSum("");
-      getIncomes();
+      setExpensesExpense("");
+      setExpensesSum("");
+      getExpenses();
     });
   };
 
-  const getIncomes = () => {
+  const getExpenses = () => {
     fetch(
-      "https://project-01-finance-default-rtdb.europe-west1.firebasedatabase.app/incomes.json"
+      "https://project-01-finance-default-rtdb.europe-west1.firebasedatabase.app/expenses.json"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -68,41 +68,44 @@ const Incomes = () => {
             id: key,
             ddmmyyyy: data[key].ddmmyyyy,
             sum: data[key].sum,
-            source: data[key].source,
+            expense: data[key].expense,
           });
         }
-        setIncomesList(result);
+        setExpensesList(result);
       });
   };
   useEffect(() => {
-    getIncomes();
+    getExpenses();
   }, []);
 
   return (
     <div>
       <input
         type="text"
-        value={incomesSource}
-        onChange={(e) => setIncomesSource(e.target.value)}
-        placeholder="Источник"
+        value={expensesExpense}
+        onChange={(e) => setExpensesExpense(e.target.value)}
+        placeholder="Цель расхода"
       />
       <input
         type="number"
-        value={incomesSum}
-        onChange={(e) => setIncomesSum(e.target.value)}
+        value={expensesSum}
+        onChange={(e) => setExpensesSum(e.target.value)}
         placeholder="Сумма"
       />
-      <button onClick={postIncomes} disabled={!incomesSource || !incomesSum}>
+      <button
+        onClick={postExpenses}
+        disabled={!expensesExpense || !expensesSum}
+      >
         СОЗДАТЬ
       </button>
-      <ul>Дата Сумма Источник</ul>
+      <ul>Дата Сумма Цель расхода</ul>
       <ul>
-        {incomesList
+        {expensesList
           .map((item) => (
             <li key={item.id}>
               {item.ddmmyyyy}
               {item.sum}
-              {item.source}
+              {item.expense}
             </li>
           ))
           .reverse()}
@@ -111,4 +114,4 @@ const Incomes = () => {
   );
 };
 
-export default Incomes;
+export default Expenses;
