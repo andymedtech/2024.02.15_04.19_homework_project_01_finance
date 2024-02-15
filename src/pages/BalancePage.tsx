@@ -1,7 +1,9 @@
+import Balance from "../component/Balance/Balance";
+
 const BalancePage = () => {
   return (
     <>
-      <h1>Balance</h1>
+      <Balance />
     </>
   );
 };
